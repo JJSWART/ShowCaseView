@@ -39,7 +39,6 @@ public class GuideView extends LinearLayout {
 
     private static final String TAG = "GuideViewActions";
     private TextView textViewNext, textViewPrevious;
-    private TextView txtSkip;
     private int arrowHeight = 300;
     private int arrowXPercentOffset = 2;
     private int rightArrowAdjust = 100;
@@ -136,7 +135,6 @@ public class GuideView extends LinearLayout {
         textViewNext = new TextView(getContext());
         textViewNext.setBackground(getResources().getDrawable(R.drawable.right_arrow));
         Log.d(TAG, "TextViewNext added");
-
         addView(textViewNext, textParam);
 
         textViewPrevious = new TextView(getContext());
@@ -158,15 +156,6 @@ public class GuideView extends LinearLayout {
             public void onClick(View view) {
                 if (arrowClickListener != null) {
                     arrowClickListener.onArrowClicked(Direction.prev);
-                }
-            }
-        });
-
-        txtSkip.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (skipTapped != null) {
-                    skipTapped.onSkipTapped();
                 }
             }
         });
