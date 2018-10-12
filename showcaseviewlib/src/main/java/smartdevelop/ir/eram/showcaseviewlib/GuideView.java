@@ -127,6 +127,7 @@ public class GuideView extends LinearLayout {
 
         LinearLayout.LayoutParams textParam = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
+        LinearLayout.LayoutParams textParam2 = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
 
         textViewNext = new TextView(getContext());
@@ -144,9 +145,7 @@ public class GuideView extends LinearLayout {
         String textSkip = "SKIP";
         txtSkip.setText(textSkip);
         txtSkip.setTextColor(Color.WHITE);
-
-
-        addView(txtSkip, textParam);
+        addView(txtSkip, textParam2);
 
         textViewNext.setOnClickListener(new OnClickListener() {
             @Override
