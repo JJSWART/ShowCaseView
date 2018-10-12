@@ -127,15 +127,7 @@ public class GuideView extends LinearLayout {
 
         LinearLayout.LayoutParams textParam = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
-        txtSkip = new TextView(getContext());
-        String textSkip = "SKIP";
-        txtSkip.setText(textSkip);
-        txtSkip.setTextColor(Color.WHITE);
-        txtSkip.setTextSize(15f);
-        txtSkip.setPadding(10, 10, 10, 10);
 
-
-        addView(txtSkip, textParam);
 
         textViewNext = new TextView(getContext());
         textViewNext.setBackground(getResources().getDrawable(R.drawable.right_arrow));
@@ -147,6 +139,14 @@ public class GuideView extends LinearLayout {
         textViewPrevious.setBackground(getResources().getDrawable(R.drawable.left_arrow));
         Log.d(TAG, "TextView Previous added");
         addView(textViewPrevious, textParam);
+
+        txtSkip = new TextView(getContext());
+        String textSkip = "SKIP";
+        txtSkip.setText(textSkip);
+        txtSkip.setTextColor(Color.WHITE);
+
+
+        addView(txtSkip, textParam);
 
         textViewNext.setOnClickListener(new OnClickListener() {
             @Override
