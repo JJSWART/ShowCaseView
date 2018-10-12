@@ -67,6 +67,7 @@ public class GuideView extends LinearLayout {
     private SkipTapped skipTapped;
     int xMessageView = 0;
     int yMessageView = 0;
+    RectF skipRect;
 
     final int ANIMATION_DURATION = 400;
     final Paint emptyPaint = new Paint();
@@ -116,6 +117,8 @@ public class GuideView extends LinearLayout {
                 locationTarget[0] + target.getWidth(),
                 locationTarget[1] + target.getHeight());
 
+
+
         mMessageView = new GuideMessageView(getContext());
         final int padding = (int) (5 * density);
         mMessageView.setPadding(padding, padding, padding, padding);
@@ -140,13 +143,6 @@ public class GuideView extends LinearLayout {
         textViewPrevious.setBackground(getResources().getDrawable(R.drawable.left_arrow));
         Log.d(TAG, "TextView Previous added");
         addView(textViewPrevious, textParam);
-
-        txtSkip = new TextView(getContext());
-        String textSkip = "SKIP";
-        txtSkip.setText(textSkip);
-        txtSkip.setTextColor(Color.WHITE);
-        txtSkip.setRotation(90f);
-        addView(txtSkip, textParam2);
 
         textViewNext.setOnClickListener(new OnClickListener() {
             @Override
@@ -306,25 +302,9 @@ public class GuideView extends LinearLayout {
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             if (isClickable) {
-                switch (dismissType) {
 
-                    case outside:
-                        if (!isViewContains(mMessageView, x, y)) {
-                            dismiss();
-                        }
-                        break;
-
-                    case anywhere:
-                        dismiss();
-                        break;
-
-                    case targetView:
-                        if (rect.contains(x, y)) {
-                            target.performClick();
-                            dismiss();
-                        }
-                        break;
-
+                if(skipRect.contains(x, y)){
+                    skipTapped.onSkipTapped();
                 }
             }
             return true;
@@ -346,11 +326,7 @@ public class GuideView extends LinearLayout {
 
     void setTextViewNextPosition(int x, int y) {
 
-        float txtSkipXp = x * 0.85f;
-        float txtSkipYp = y * 0.93f;
-
-        txtSkip.setX(txtSkipXp);
-        txtSkip.setY(txtSkipYp);
+        skipRect = new RectF(x * 0.8f,y * 0.85f ,x * 0.97f , y * 0.97f );
 
         if (showArrows) {
 
