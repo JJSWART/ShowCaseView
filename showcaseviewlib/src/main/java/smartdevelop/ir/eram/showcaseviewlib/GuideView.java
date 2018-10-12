@@ -145,6 +145,7 @@ public class GuideView extends LinearLayout {
         String textSkip = "SKIP";
         txtSkip.setText(textSkip);
         txtSkip.setTextColor(Color.WHITE);
+        txtSkip.setRotation(90f);
         addView(txtSkip, textParam2);
 
         textViewNext.setOnClickListener(new OnClickListener() {
