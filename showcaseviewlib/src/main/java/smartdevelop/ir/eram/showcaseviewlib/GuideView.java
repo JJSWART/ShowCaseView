@@ -315,7 +315,7 @@ public class GuideView extends LinearLayout {
 
     void setTextViewNextPosition(int x, int y) {
 
-        skipRect = new RectF(x * 0.8f,y * 0.85f ,x * 0.97f , y * 0.97f );
+        skipRect = new RectF(x * 0.8f,y * 0.85f ,x * 0.99f , y * 0.99f );
 
         if (showArrows) {
 
